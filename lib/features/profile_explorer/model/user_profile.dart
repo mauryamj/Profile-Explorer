@@ -1,7 +1,32 @@
 class UserProfile {
   final String name;
-  final String profileimage;
+  final String profileImage;
   final int age;
   final String city;
-  UserProfile(this.name, this.profileimage, this.age, this.city);
+  final String userId;
+  final bool islinked;
+  UserProfile({
+    required this.name,
+    required this.profileImage,
+    required this.age,
+    required this.city,
+    required this.userId,
+    this.islinked = false,
+  });
+  UserProfile copyWith({
+    String? name,
+    String? profileImage,
+    int? age,
+    String? city,
+    String? userId,
+    bool? islinked,
+  }) {
+    return UserProfile(
+      name: name ?? this.name,
+      profileImage: profileImage ?? this.profileImage,
+      age: age ?? this.age,
+      city: city ?? this.city,
+      userId: userId ?? this.userId,
+    );
+  }
 }
