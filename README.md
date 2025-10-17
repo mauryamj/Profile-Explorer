@@ -6,7 +6,7 @@ A sleek and animated profile browsing application built with Flutter. This proje
 
 | Grid View | Detail View |
 | :---: | :---: |
-| ![Grid View](images/sample1.jpeg) | ![Detail View](images/sample_2.jpeg) |
+| ![Grid View](git_images/sample_1.jpeg) | ![Detail View](git_images/sample_2.jpeg) |
 
 ## Features
 
