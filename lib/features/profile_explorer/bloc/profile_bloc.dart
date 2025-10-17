@@ -16,7 +16,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         final users = await _userService.fetchData();
         emit(ProfileLoaded(users));
       } catch (e) {
-        print(e);
         emit(ProfileError(e.toString()));
       }
     });
@@ -25,18 +24,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         final currentState = state as ProfileLoaded;
         final updatedProfile = currentState.users.map((profile) {
           if (profile.userId == event.profileId) {
-            print(profile.userId);
-            return profile.copyWith(islinked: !profile.islinked);
+            return profile.copyWith(isLiked: !profile.isLiked);
           }
-          print("it did");
           return profile;
         }).toList();
-        print("it showed");
         emit(ProfileLoaded(updatedProfile));
-        print("it showed at this too");
-      } else {
-        print("ignored");
-      }
+      } else {}
     });
   }
 }

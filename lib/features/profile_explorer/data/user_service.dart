@@ -19,7 +19,7 @@ class UserService {
           age: profile["dob"]["age"],
           city: profile["location"]["city"],
           userId: profile["login"]["uuid"],
-          islinked: false,
+          isLiked: false,
         );
       }).toList();
     } else {

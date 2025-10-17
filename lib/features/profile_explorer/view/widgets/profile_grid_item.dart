@@ -36,7 +36,7 @@ class Profilegriditem extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.transparent, Colors.black87],
+                    colors: [Colors.transparent, Colors.black45],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     stops: [0.6, 1.0],
@@ -85,10 +85,10 @@ class Profilegriditem extends StatelessWidget {
                         );
                       },
                       icon: Icon(
-                        userProfile.islinked
+                        userProfile.isLiked
                             ? Icons.favorite
                             : Icons.favorite_border_outlined,
-                        color: userProfile.islinked
+                        color: userProfile.isLiked
                             ? Colors.redAccent
                             : Colors.white,
                         size: 20,

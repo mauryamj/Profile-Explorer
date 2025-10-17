@@ -6,14 +6,14 @@ class UserProfile extends Equatable {
   final int age;
   final String city;
   final String userId;
-  final bool islinked;
+  final bool isLiked;
   const UserProfile({
     required this.name,
     required this.profileImage,
     required this.age,
     required this.city,
     required this.userId,
-    this.islinked = false,
+    this.isLiked = false,
   });
   UserProfile copyWith({
     String? name,
@@ -21,7 +21,7 @@ class UserProfile extends Equatable {
     int? age,
     String? city,
     String? userId,
-    bool? islinked,
+    bool? isLiked,
   }) {
     return UserProfile(
       name: name ?? this.name,
@@ -29,9 +29,10 @@ class UserProfile extends Equatable {
       age: age ?? this.age,
       city: city ?? this.city,
       userId: userId ?? this.userId,
+      isLiked: isLiked ?? this.isLiked,
     );
   }
 
   @override
-  List<Object> get props => [name, profileImage, age, city, userId, islinked];
+  List<Object> get props => [name, profileImage, age, city, userId, isLiked];
 }

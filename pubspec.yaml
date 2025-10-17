@@ -38,6 +38,7 @@ dependencies:
   meta: ^1.16.0
   http: ^1.5.0
   equatable: ^2.0.7
+  skeletonizer: ^2.1.0+1
 
 dev_dependencies:
   flutter_test:
