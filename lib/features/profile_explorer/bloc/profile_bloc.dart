@@ -8,16 +8,34 @@ part 'profile_event.dart';
 part 'profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  final UserService userService;
-  ProfileBloc(this.userService) : super(ProfileInitial()) {
-    on<FetchProfile>((event, emit)async {
+  final UserService _userService;
+  ProfileBloc(this._userService) : super(ProfileInitial()) {
+    on<FetchProfile>((event, emit) async {
       emit(ProfileLoading());
-      try{
-        final users = await userService.fetchData();
+      try {
+        final users = await _userService.fetchData();
         emit(ProfileLoaded(users));
+      } catch (e) {
+        print(e);
+        emit(ProfileError(e.toString()));
       }
-      catch (e) {
-        emit(ProfileError('Failed to load data'));
+    });
+    on<ToggleLike>((event, emit) {
+      if (state is ProfileLoaded) {
+        final currentState = state as ProfileLoaded;
+        final updatedProfile = currentState.users.map((profile) {
+          if (profile.userId == event.profileId) {
+            print(profile.userId);
+            return profile.copyWith(islinked: !profile.islinked);
+          }
+          print("it did");
+          return profile;
+        }).toList();
+        print("it showed");
+        emit(ProfileLoaded(updatedProfile));
+        print("it showed at this too");
+      } else {
+        print("ignored");
       }
     });
   }

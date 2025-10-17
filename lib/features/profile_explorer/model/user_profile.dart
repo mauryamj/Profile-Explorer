@@ -1,11 +1,13 @@
-class UserProfile {
+import 'package:equatable/equatable.dart';
+
+class UserProfile extends Equatable {
   final String name;
   final String profileImage;
   final int age;
   final String city;
   final String userId;
   final bool islinked;
-  UserProfile({
+  const UserProfile({
     required this.name,
     required this.profileImage,
     required this.age,
@@ -29,4 +31,7 @@ class UserProfile {
       userId: userId ?? this.userId,
     );
   }
+
+  @override
+  List<Object> get props => [name, profileImage, age, city, userId, islinked];
 }
